@@ -49,29 +49,31 @@ $(function () {
                 name: 'Pre-Discovery',
                 id: 'Pre-Discovery',
                 data: [
-                    ['DOC', 100]
+                    ['DOC: Commerce Data Academy', 100]
                 ]
             }, {
                 name: 'Discovery',
                 id: 'Discovery',
                 data: [
-                    ['BEA', 100]
+                    ['BEA: BEA RIMS II', 100]
                 ]
             }, {
                 name: 'In-Progress',
                 id: 'In-Progress',
                 data: [
-                    ['ITA', 25],
-                    ['NIST', 25],
-                    ['ESA', 25],
-                    ['PTO', 25]
+                    ['ITA: New Exporters Project', 25],
+                    ['NIST: Commerce Interoperability Framework', 25],
+                    ['ESA: Commerce Data Advisory Council', 25],
+                    ['PTO: Open Data Roadmap', 25]
                 ]
             }, {
                 name: 'Complete',
                 id: 'Complete',
                 data: [
-                    ['DOC', 75],
-                    ['CENSUS', 25]
+                    ['DOC: Commerce Data Usability Project', 25],
+                    ['CENSUS: Income Inequality', 25],
+                    ['DOC: Data.Commerce.gov', 25],
+                    ['DOC: White House Council of Women and Girls', 25]
                 ]
             }]
         }
