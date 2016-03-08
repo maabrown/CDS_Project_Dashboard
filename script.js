@@ -14,44 +14,58 @@ $(function () {
             series: {
                 dataLabels: {
                     enabled: true,
-                    format: '{point.name}: {point.y:.1f}%'
+                    format: '{point.name}: {point.y}%'
                 }
             }
         },
 
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-        },
+        
         series: [{
             name: 'Project Status',
             colorByPoint: true,
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.breakdown}</span>'
+            },
             data: [{
                 name: 'Pre-Discovery',
                 y: 10,
-                drilldown: 'Pre-Discovery'
+                drilldown: 'Pre-Discovery',
+                breakdown: 'BEA, ITA, NCIS'
             }, {
                 name: 'Discovery',
                 y: 10,
-                drilldown: 'Discovery'
+                drilldown: 'Discovery',
+                breakdown: 'BEA, ITA, NCIS'
             }, {
                 name: 'In-Progress',
                 y: 40,
-                drilldown: 'In-Progress'
+                drilldown: 'In-Progress',
+                breakdown: 'BEA, ITA, NCIS'
             }, {
                 name: 'Complete',
                 y: 40,
-                drilldown: 'Complete'
+                drilldown: 'Complete',
+                breakdown: 'BEA, ITA, NCIS'
             }]
         }],
         drilldown: {
-            series: [{
-                name: 'Pre-Discovery',
+            series: [
+                {
+                tooltip: {
+                    pointFormat: '{point.breakdown}'
+                },
                 id: 'Pre-Discovery',
-                data: [
-                    ['DOC: Commerce Data Academy', 100]
-                ]
-            }, {
+                name: 'Pre-Discovery',
+                breakdown: 'DOC2: Academy',
+                data: [{
+                    name: 'DOC',
+                    y: 100,
+                    breakdown: 'DOC2: Academy'
+                }]
+            }, 
+
+                {
                 name: 'Discovery',
                 id: 'Discovery',
                 data: [
