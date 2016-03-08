@@ -31,65 +31,112 @@ $(function () {
                 name: 'Pre-Discovery',
                 y: 10,
                 drilldown: 'Pre-Discovery',
-                breakdown: 'BEA, ITA, NCIS'
+                breakdown: 'BEA, ITA, NCIS',
+                color: '#969353'
             }, {
                 name: 'Discovery',
                 y: 10,
                 drilldown: 'Discovery',
-                breakdown: 'BEA, ITA, NCIS'
+                breakdown: 'BEA, ITA, NCIS',
+                color: '#cd7d19'
             }, {
                 name: 'In-Progress',
                 y: 40,
                 drilldown: 'In-Progress',
-                breakdown: 'BEA, ITA, NCIS'
+                breakdown: 'BEA, ITA, NCIS',
+                color: '#4b6e37'
             }, {
                 name: 'Complete',
                 y: 40,
                 drilldown: 'Complete',
-                breakdown: 'BEA, ITA, NCIS'
+                breakdown: 'BEA, ITA, NCIS',
+                color: '#41285f'
             }]
         }],
+
         drilldown: {
+            
             series: [
                 {
-                tooltip: {
-                    pointFormat: '{point.breakdown}'
-                },
-                id: 'Pre-Discovery',
-                name: 'Pre-Discovery',
-                breakdown: 'DOC2: Academy',
-                data: [{
-                    name: 'DOC',
-                    y: 100,
-                    breakdown: 'DOC2: Academy'
-                }]
-            }, 
-
+                    tooltip: {
+                        pointFormat: '{point.breakdown}'
+                    },
+                    id: 'Pre-Discovery',
+                    name: 'Pre-Discovery',
+                    data: [{
+                        name: 'DOC',
+                        y: 100,
+                        breakdown: 'DOC: Commerce Data Academy'
+                    }]
+                }, 
                 {
-                name: 'Discovery',
-                id: 'Discovery',
-                data: [
-                    ['BEA: BEA RIMS II', 100]
-                ]
-            }, {
-                name: 'In-Progress',
-                id: 'In-Progress',
-                data: [
-                    ['ITA: New Exporters Project', 25],
-                    ['NIST: Commerce Interoperability Framework', 25],
-                    ['ESA: Commerce Data Advisory Council', 25],
-                    ['PTO: Open Data Roadmap', 25]
-                ]
-            }, {
-                name: 'Complete',
-                id: 'Complete',
-                data: [
-                    ['DOC: Commerce Data Usability Project', 25],
-                    ['CENSUS: Income Inequality', 25],
-                    ['DOC: Data.Commerce.gov', 25],
-                    ['DOC: White House Council of Women and Girls', 25]
-                ]
-            }]
+                    tooltip: {
+                        pointFormat: '{point.breakdown}'
+                    },
+                    id: 'Discovery',
+                    name: 'Discovery',
+                    data: [{
+                        name: 'BEA',
+                        y: 100,
+                        breakdown: 'BEA: BEA RIMS II'
+                    }]
+                },
+                {
+                    tooltip: {
+                        pointFormat: '{point.breakdown}'
+                    },
+                    id: 'In-Progress',
+                    name: 'In-Progress',
+                    data: [
+                           {
+                        name: 'ITA',
+                        y: 25,
+                        breakdown: 'New Exporters Product'
+                    },
+                            {
+                        name: 'NIST',
+                        y: 25,
+                        breakdown: 'Commerce Interoperability Framework'        
+                    },
+                            {
+                        name: 'PTO',
+                        y: 25,
+                        breakdown: 'Open Data Roadmap'
+                    },
+                            {
+                        name: 'ESA',
+                        y: 25,
+                        breakdown: 'Commerce Data Advisory Council (CDAC)'
+                    }]
+                },
+                {
+                    tooltip: {
+                        pointFormat: '{point.breakdown}'
+                    },
+                    id: 'Complete',
+                    name: 'Complete',
+                    data: [
+                           {
+                        name: 'DOC',
+                        y: 25,
+                        breakdown: 'Commerce Data Usability Project'
+                    },
+                            {
+                        name: 'CENSUS',
+                        y: 25,
+                        breakdown: 'Income Inequality'        
+                    },
+                            {
+                        name: 'DOC',
+                        y: 25,
+                        breakdown: 'Data.Commerce.Gov'
+                    },
+                            {
+                        name: 'DOC',
+                        y: 25,
+                        breakdown: 'White House Council of Women and Girls'
+                    }]
+                }]
         }
     });
 });
