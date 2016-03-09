@@ -16,6 +16,12 @@ $(function () {
                     enabled: true,
                     format: '{point.name}: {point.y}%'
                 }
+            },
+            drilldown: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
             }
         },
 
@@ -31,25 +37,25 @@ $(function () {
                 name: 'Pre-Discovery',
                 y: 10,
                 drilldown: 'Pre-Discovery',
-                breakdown: 'BEA, ITA, NCIS',
+                breakdown: 'DOC',
                 color: '#969353'
             }, {
                 name: 'Discovery',
                 y: 10,
                 drilldown: 'Discovery',
-                breakdown: 'BEA, ITA, NCIS',
+                breakdown: 'BEA',
                 color: '#cd7d19'
             }, {
                 name: 'In-Progress',
                 y: 40,
                 drilldown: 'In-Progress',
-                breakdown: 'BEA, ITA, NCIS',
+                breakdown: 'ITA, NIST, PTO, ESA',
                 color: '#4b6e37'
             }, {
                 name: 'Complete',
                 y: 40,
                 drilldown: 'Complete',
-                breakdown: 'BEA, ITA, NCIS',
+                breakdown: 'DOC, CENSUS',
                 color: '#41285f'
             }]
         }],
