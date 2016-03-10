@@ -8,7 +8,7 @@ $(function () {
             text: 'Commerce Data Service - Project Dashboard'
         },
         subtitle: {
-            text: 'Click the slices to view versions.'
+            text: 'Delivering Data Services * Fueling Economic Growth * Creating Data Driven Government'
         },
         plotOptions: {
             series: {
@@ -61,7 +61,13 @@ $(function () {
         }],
 
         drilldown: {
-            
+            drillUpButton: {
+                relativeTo: 'spacingBox',
+                position: {
+                    x: 5,
+                    y: 50
+                }
+            },
             series: [
                 {
                     tooltip: {
