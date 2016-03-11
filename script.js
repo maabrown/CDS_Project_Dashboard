@@ -30,7 +30,8 @@ $(function () {
                     style: {
                         fontVariant: 'small-caps',
                         color: 'white',
-                        fontSize: '16px'
+                        fontSize: '16px',
+                        fontWeight: 'bold'
                     }
                 }
             },
