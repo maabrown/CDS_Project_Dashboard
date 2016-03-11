@@ -21,10 +21,16 @@ $(function () {
             }
         },
         plotOptions: {
+            pie: {
+                borderColor: 'black'
+            },
             series: {
                 dataLabels: {
+                    connectorWidth: 3,
+                    connectorColor: 'black',
+                    softConnector: false,
                     enabled: true,
-                    distance: -60,
+                    distance: 70,
                     shadow: false,
                     format: '{point.name}: {point.y}%',
                     style: {
