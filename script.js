@@ -24,9 +24,13 @@ $(function () {
             series: {
                 dataLabels: {
                     enabled: true,
+                    distance: -60,
+                    shadow: false,
                     format: '{point.name}: {point.y}%',
                     style: {
-                        fontVariant: 'small-caps'
+                        fontVariant: 'small-caps',
+                        color: 'white',
+                        fontSize: '16px'
                     }
                 }
             },
