@@ -2,19 +2,32 @@ $(function () {
     // Create the chart
     $('#container').highcharts({
         chart: {
-            type: 'pie'
+            type: 'pie',
+            style: {
+                fontFamily: 'SourceSansProRegular, Open Sans, Helvetica Neue, Arial, sans-serif'
+            }
         },
         title: {
-            text: 'Commerce Data Service - Project Dashboard'
+            text: 'Commerce Data Service - Project Dashboard',
+            style: {
+                fontWeight: 'bold',
+                fontVariant: 'small-caps'
+            }
         },
         subtitle: {
-            text: 'Delivering Data Services * Fueling Economic Growth * Creating Data Driven Government'
+            text: 'Delivering Data Services * Fueling Economic Growth * Creating Data Driven Government',
+            style: {
+                fontVariant: 'small-caps'
+            }
         },
         plotOptions: {
             series: {
                 dataLabels: {
                     enabled: true,
-                    format: '{point.name}: {point.y}%'
+                    format: '{point.name}: {point.y}%',
+                    style: {
+                        fontVariant: 'small-caps'
+                    }
                 }
             },
             drilldown: {
