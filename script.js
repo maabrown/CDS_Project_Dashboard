@@ -30,12 +30,12 @@ $(function () {
                     connectorColor: 'black',
                     softConnector: false,
                     enabled: true,
-                    distance: 70,
+                    distance: 20,
                     shadow: false,
                     format: '{point.name}: {point.y}%',
                     style: {
                         fontVariant: 'small-caps',
-                        color: 'white',
+                        color: 'black',
                         fontSize: '16px'
                     }
                 }
@@ -43,7 +43,8 @@ $(function () {
             drilldown: {
                 dataLabels: {
                     enabled: true,
-                    format: '{point.name}'
+                    format: '{point.name}',
+                    borderColor: 'blue'
                 }
             }
         },
@@ -93,6 +94,9 @@ $(function () {
             },
             series: [
                 {
+                    dataLabels: {
+                        format: '{point.name}'
+                    },
                     tooltip: {
                         pointFormat: '{point.breakdown}'
                     },
@@ -105,6 +109,9 @@ $(function () {
                     }]
                 }, 
                 {
+                    dataLabels: {
+                        format: '{point.name}'
+                    },
                     tooltip: {
                         pointFormat: '{point.breakdown}'
                     },
@@ -117,8 +124,12 @@ $(function () {
                     }]
                 },
                 {
+                    dataLabels: {
+                        format: '{point.name}'
+                    },
                     tooltip: {
-                        pointFormat: '{point.breakdown}'
+                        useHTML: true,
+                        pointFormat: 'Project: {point.breakdown} <br> Services: {point.services} <br> Impact: {point.impact}'
                     },
                     id: 'In-Progress',
                     name: 'In-Progress',
@@ -131,7 +142,9 @@ $(function () {
                             {
                         name: 'NIST',
                         y: 25,
-                        breakdown: 'Commerce Interoperability Framework'        
+                        breakdown: 'Commerce Interoperability Framework',        
+                        services: 'Backend',
+                        impact: 'Creating Data-Driven Government'
                     },
                             {
                         name: 'PTO',
@@ -145,6 +158,9 @@ $(function () {
                     }]
                 },
                 {
+                    dataLabels: {
+                        format: '{point.name}'
+                    },
                     tooltip: {
                         pointFormat: '{point.breakdown}'
                     },
