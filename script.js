@@ -5,11 +5,11 @@
                 colors = Highcharts.getOptions().colors,
                 categories = ['Pre-Discovery', 'Discovery', 'In-Progress', 'Complete'], // category name matches 'name' property
                 name = 'Groups',
-                subtitle2 = 'Click section to return Home'
+                subtitle2 = 'Click section to return Home',
                 data = [{
                     y: 2, // this is to determine how big the slice of the pie you want for this item
                     name: 'Pre-Discovery', // this is the top group - used in  328, 339 for tool tip and resetting
-                    color: colors[1], // decide color for the slice
+                    color: '#6bad50', // decide color for the slice
                     list: 'DOC, BEA',
                     // THIS BEGINS THE NEXT DRILLDOWN - for deeper drilldowns you create another object in the 'data' property
                     drilldown: {
@@ -20,7 +20,7 @@
                         data: [{
                             y: 1, // setting this to 0 makes it disappear
                             name: 'DOC',
-                            color: colors[1],
+                            color: '#6bad50',
                             initiative: 'Commerce Data Academy',
                             services: 'UI/UX',
                             objective: 'Delivering Data Services'
@@ -29,7 +29,7 @@
                 }, {
                     y: 1,
                     name: 'Discovery',
-                    color: colors[2],
+                    color: '#dee58c',
                     list: 'BEA',
                     drilldown: {
                         title: 'Discovery Clients',
@@ -39,7 +39,7 @@
                         data: [{
                             y: 1,
                             name: 'BEA',
-                            color: colors[1],
+                            color: '#dee58c',
                             initiative: 'BEA RIMS II',
                             services: 'UI/UX',
                             objective: 'Delivering Data Services'
@@ -48,7 +48,7 @@
                 }, {
                     y: 5,
                     name: 'In-Progress',
-                    color: colors[3],
+                    color: '#006c79',
                     list: 'ITA, NIST, PTO, ESA',
                     drilldown: {
                         title: 'In-Progress Clients',
@@ -107,7 +107,7 @@
                 }, {
                     y: 4,
                     name: 'Complete',
-                    color: colors[4],
+                    color: '#00305d',
                     list: 'DOC, CENSUS',
                     drilldown: {
                         title: 'Complete Projects',
@@ -161,7 +161,7 @@
 
             if (chartType == 'pie') {
                 subtitle = 'Click on a slice to drill-down';
-                alpha = 60; // this is chooses the angle that people see the 3d pie chart (along top down axis)
+                // alpha = 60; // this is chooses the angle that people see the 3d pie chart (along top down axis)
             }
 
             function setChart(options) {
@@ -182,32 +182,42 @@
             }
 
             chart = new Highcharts.Chart({
+                credits: {
+                    enabled: false
+                },
                 chart: {
-                    renderTo: 'chartContainer', // passing it where to put it on the HTML - there is a div with ID 'chartContainer'
-                    options3d: {
-                        enabled: true,
-                        alpha: alpha,
-                        beta: 0,
-                        depth: 50,
-                        frame: {
-                            bottom: {
-                                size: 10,
-                                color: '#C0C0C0'
-                            }
-                        },
+                    style: {
+                        fontFamily: 'SourceSansProRegular, Open Sans, Helvetica Neue, Arial, sans-serif'
                     },
+                    renderTo: 'chartContainer', // passing it where to put it on the HTML - there is a div with ID 'chartContainer'
+                    // options3d: {
+                    //     enabled: true,
+                    //     alpha: alpha,
+                    //     beta: 0,
+                    //     depth: 50,
+                    //     frame: {
+                    //         bottom: {
+                    //             size: 10,
+                    //             color: '#C0C0C0'
+                    //         }
+                    //     },
+                    // },
                     height: 600, // sets chart height regardless of div
                     width: 800, // sets chart width regardless of div
-                    plotBackgroundColor: { //sets the background color
-                        linearGradient: [0, 0, 500, 500],
-                        stops: [
-                            [0, 'rgb(200, 200, 255)'],
-                            [1, 'rgb(255, 255, 255)']
-                        ]
-                    }
+                    // plotBackgroundColor: { //sets the background color
+                    //     linearGradient: [0, 0, 500, 500],
+                    //     stops: [
+                    //         [0, 'rgb(200, 200, 255)'],
+                    //         [1, 'rgb(255, 255, 255)']
+                    //     ]
+                    // }
                 }, // end of chart property
                 title: {
-                    text: title
+                    text: title,
+                    style: {
+                        fontWeight: 'bold',
+                        textTransform: 'uppercase'
+                    }
                 },
                 subtitle: {
                     text: subtitle
@@ -222,16 +232,16 @@
                 },
                 plotOptions: {
                     pie: {
-                        depth: 50,
-                        innerSize: '40%',
-                        slicedOffset: 40, // decides how far a slice should move if chosen - related to mouseout event below
+                        // depth: 50,
+                        // innerSize: '40%',
+                        //slicedOffset: 20, // decides how far a slice should move if chosen - related to mouseout event below
                         point: { //sets events
                             events: {
                                 mouseOut: function (event) {
                                     this.slice(false); // 'false' boolean sets it back into the pie
                                 },
                                 mouseOver: function (event) {
-                                    this.slice(true); // 'true' boolean sets it away from pie using slicedOffset
+                                    this.slice(false); // 'true' boolean sets it away from pie using slicedOffset
                                 }
                             }
                         },
@@ -280,9 +290,9 @@
                         var point = this.point, // sets keyword 'this' -- this.point is really series.data
                             s = point.name + ': ' + point.list + '. '; //formats pointer
                         if (point.drilldown) { // if the point is in series.data.drilldown do this
-                            s += 'Click to view ' + point.name;
+                            s = 'Click to view ' + point.name;
                         } else {
-                            s = '<b>' + point.name + '</b>'+ '<br/>' + 
+                            s = point.name + '<br/>' + 
                                 'Initiative: ' + point.initiative + '<br/>' +
                                 'Services: ' + point.services + '<br/>' +
                                 'Objective: ' + point.objective + '<br/>' + '<br/>' +
