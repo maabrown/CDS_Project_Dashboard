@@ -5,6 +5,7 @@
                 colors = Highcharts.getOptions().colors,
                 categories = ['Pre-Discovery', 'Discovery', 'In-Progress', 'Complete'], // category name matches 'name' property
                 name = 'Groups',
+                subtitle2 = 'Click section to return Home'
                 data = [{
                     y: 2, // this is to determine how big the slice of the pie you want for this item
                     name: 'Pre-Discovery', // this is the top group - used in  328, 339 for tool tip and resetting
@@ -13,7 +14,7 @@
                     // THIS BEGINS THE NEXT DRILLDOWN - for deeper drilldowns you create another object in the 'data' property
                     drilldown: {
                         title: 'Pre-Discovery Clients', // title at top of drill down
-                        subtitle: subtitle, // can set subtitle here or you can use the one made above
+                        subtitle: subtitle2, // can set subtitle here or you can use the one made above
                         name: 'Users', // Way to organize your drilldowns based on info, doesn't show up in graph
                         categories: ['DOC'], // Line 227 uses this category to make X Axis
                         data: [{
@@ -26,157 +27,130 @@
                         }]
                     }
                 }, {
-                    y: 0,
-                    name: 'EM Consumers',
+                    y: 1,
+                    name: 'Discovery',
                     color: colors[2],
+                    list: 'BEA',
                     drilldown: {
-                        title: 'EM Consumers Group Data',
-                        subtitle: subtitle,
+                        title: 'Discovery Clients',
+                        subtitle: subtitle2,
                         name: 'Users',
-                        categories: ['Paul'],
+                        categories: ['BEA'],
                         data: [{
-                            y: 0,
-                            name: 'Paul',
+                            y: 1,
+                            name: 'BEA',
                             color: colors[1],
-                            drilldown: {
-                                title: 'Paul Assignments',
-                                subtitle: 'Paul Assignments by content type',
-                                name: 'Users',
-                                categories: [],
-                                data: []
-                            }
+                            initiative: 'BEA RIMS II',
+                            services: 'UI/UX',
+                            objective: 'Delivering Data Services'
                         }]
                     }
                 }, {
-                    y: 1,
-                    name: 'EM knowledge Managers',
+                    y: 5,
+                    name: 'In-Progress',
                     color: colors[3],
+                    list: 'ITA, NIST, PTO, ESA',
                     drilldown: {
-                        title: 'EM knowledge Managers Group Data',
-                        subtitle: subtitle,
+                        title: 'In-Progress Clients',
+                        subtitle: subtitle2,
                         name: 'Users',
-                        categories: ['Bill'],
+                        categories: ['NIST', 'PTO', 'ESA', 'ITA'],
                         data: [{
                             y: 1,
-                            name: 'Bill',
-                            color: colors[1],
-                            drilldown: {
-                                title: 'Bill Assignments',
-                                subtitle: 'Bill Assignments by content type',
-                                name: 'Users',
-                                categories: ['QuarkXPress Project'],
-                                data: [{
-                                    y: 1,
-                                    name: 'QuarkXPress Project',
-                                    color: colors[1]
-                                }]
-                            }
-                        }]
-                    }
-                }, {
-                    y: 1,
-                    name: 'EM Media Managers',
-                    color: colors[4],
-                    drilldown: {
-                        title: 'EM Media Managers Group Data',
-                        subtitle: subtitle,
-                        name: 'Users',
-                        categories: ['Bill'],
-                        data: [{
+                            name: 'NIST',
+                            color: colors[2],
+                            initiative: 'Commerce Interoperability Project',
+                            services: 'Data Science, Back-End',
+                            objective: 'Creating Data-Driven Government'
+                        },  {
                             y: 1,
-                            name: 'Bill',
-                            color: colors[1],
-                            drilldown: {
-                                title: 'Bill Assignments',
-                                subtitle: 'Bill Assignments by content type',
-                                name: 'Users',
-                                categories: ['QuarkXPress Project'],
-                                data: [{
-                                    y: 1,
-                                    name: 'QuarkXPress Project',
-                                    color: colors[1]
-                                }]
-                            }
-                        }]
-                    }
-                }, {
-                    y: 1,
-                    name: 'EM Publishers',
-                    color: colors[5],
-                    drilldown: {
-                        title: 'EM Publishers Group Data',
-                        subtitle: subtitle,
-                        name: 'Users',
-                        categories: ['kate', 'Bill'],
-                        data: [{
-                            y: 0,
-                            name: 'kate',
-                            color: colors[1],
-                            drilldown: {
-                                title: 'kate Assignments',
-                                subtitle: 'kate Assignments by content type',
-                                name: 'Users',
-                                categories: [],
-                                data: []
-                            }
+                            name: 'PTO',
+                            color: colors[3],
+                            initiative: 'Open Data Roadmap',
+                            services: 'General',
+                            objective: 'Fueling Economic Growth'
                         }, {
                             y: 1,
-                            name: 'Bill',
-                            color: colors[2],
+                            name: 'ESA',
+                            color: colors[4],
+                            initiative: 'Commerce Data Advisory Council',
+                            services: 'General',
+                            objective: 'Fueling Economic Growth'
+                        }, {
+                            y: 2,
+                            name: 'ITA',
+                            color: colors[5],
+                            initiative: 'Numerous Projects',
+                            services: 'UI/UX, Back-End, Data Science',
+                            objective: 'Numerous Objectives',
                             drilldown: {
-                                title: 'Bill Assignments',
-                                subtitle: 'Bill Assignments by content type',
+                                title: 'ITA',
+                                subtitle: subtitle,
                                 name: 'Users',
-                                categories: ['QuarkXPress Project'],
+                                categores: ['New Exporters', 'Principal Tracker'],
                                 data: [{
                                     y: 1,
-                                    name: 'QuarkXPress Project',
-                                    color: colors[1]
+                                    name: 'Principal Tracker',
+                                    color: colors[1],
+                                    services: 'UX/UI, Back-End',
+                                    objective: 'Delivering Data Services'
+                                },{
+                                    y: 1,
+                                    name: 'New Exporters Project',
+                                    color: colors[2],
+                                    services: 'Data Science',
+                                    objective: 'Fueling Economic Growth'
                                 }]
                             }
                         }]
                     }
                 }, {
-                    y: 3,
-                    name: 'EM Reviewers',
-                    color: colors[6],
+                    y: 4,
+                    name: 'Complete',
+                    color: colors[4],
+                    list: 'DOC, CENSUS',
                     drilldown: {
-                        title: 'EM Reviewers Group Data',
+                        title: 'Complete Projects',
                         subtitle: subtitle,
                         name: 'Users',
-                        categories: ['Jack', 'Bill'],
+                        categories: ['DOC, CENSUS'],
                         data: [{
-                            y: 2,
-                            name: 'Jack',
+                            y: 1,
+                            name: 'CENSUS',
                             color: colors[1],
+                            initiative: 'Income Inequality',
+                            services: 'General',
+                            objective: 'Fueling Economic Growth'
+                        }, {
+                            y: 3,
+                            name: 'DOC',
+                            color: colors[2],
+                            initiative: 'Numerous Projects',
+                            services: 'UX/UI, Data Science, Back-End',
+                            objective: 'Numerous Objectives',
                             drilldown: {
-                                title: 'Jack Assignments',
-                                subtitle: 'Jack Assignments by content type',
+                                title: 'DOC Projects',
+                                subtitle: 'Completed',
                                 name: 'Users',
-                                categories: ['Microsoft Excel', 'App Studio Package'],
+                                categories: ['Commerce Data Usability Project', 'Data.Commerce.Gov', 'White House Council of Women and Girls'],
                                 data: [{
                                     y: 1,
-                                    name: 'Microsoft Excel',
-                                    color: colors[1]
+                                    name: 'Commerce Data Usability Project',
+                                    color: colors[1],
+                                    services: 'Data Science, UX/UI, Back-End',
+                                    objective: 'Delivering Data Services'
                                 }, {
                                     y: 1,
-                                    name: 'App Studio Package',
-                                    color: colors[2]
-                                }]
-                            }
-                        }, {
-                            y: 1,
-                            name: 'Bill',
-                            color: colors[2],
-                            drilldown: {
-                                title: 'Bill Assignments',
-                                subtitle: 'Bill Assignments by content type',
-                                name: 'Users',
-                                categories: ['QuarkXPress Project'],
-                                data: [{
-                                    y: 1,
-                                    name: 'QuarkXPress Project',
-                                    color: colors[1]
+                                    name: 'Data.Commerce.Gov',
+                                    color: colors[2],
+                                    services: 'General',
+                                    objective: 'Fueling Economic Growth'
+                                }, {
+                                    y: 1, 
+                                    name: 'White House Council of Women and Girls',
+                                    color: colors[3],
+                                    services: 'Data Science, UX/UI',
+                                    objective: 'Delivering Data Services'
                                 }]
                             }
                         }]
