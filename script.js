@@ -171,14 +171,15 @@
                     text: options.subtitle
                 });
                 chart.series[0].remove(false); //boolean decides if it needs to redraw immediately, sinc we are doing more we do not set it to true, we remove the series
+                chart.xAxis[0].setCategories(options.categories, false);
                 chart.addSeries({
                     type: options.type,
                     name: options.name,
                     data: options.data,
                     color: options.color || 'white'
                 }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
-                chart.xAxis[0].setCategories(options.categories, false); // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
-                chart.redraw(); // redraws chart
+                 // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
+                setTimeout(chart.redraw(), 10000); // redraws chart
             }
 
             chart = new Highcharts.Chart({
@@ -262,7 +263,7 @@
                                     var options; // create variable to passed into setChart function
                                     if (drilldown) { // drill down
                                         options = {
-                                            'title': drilldown.title,
+                                                'title': drilldown.title,
                                                 'subtitle': drilldown.subtitle,
                                                 'name': drilldown.name,
                                                 'categories': drilldown.categories,
@@ -271,12 +272,13 @@
                                         };
                                     } else { // restore to first level
                                         options = {
-                                            'title': title,
+                                                'title': title,
                                                 'subtitle': subtitle,
                                                 'name': name,
                                                 'categories': categories,
                                                 'data': data,
                                                 'type': chartType
+                                            // return options;
                                         };
                                     }
                                     setChart(options);
