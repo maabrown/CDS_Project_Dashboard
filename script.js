@@ -156,13 +156,13 @@
                         }]
                     }
                 }], // end of data property
-                chartType = 'pie',
-                alpha = 0;
+                chartType = 'pie'
+            //    alpha = 0;
 
-            if (chartType == 'pie') {
-                subtitle = 'Click on a slice to drill-down';
-                // alpha = 60; // this is chooses the angle that people see the 3d pie chart (along top down axis)
-            }
+            // if (chartType == 'pie') {
+            //     subtitle = 'Click on a slice to drill-down';
+            //     // alpha = 60; // this is chooses the angle that people see the 3d pie chart (along top down axis)
+            //}
 
             function setChart(options) {
                 chart.setTitle({
@@ -179,7 +179,11 @@
                     color: options.color || 'white'
                 }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
                  // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
-                setTimeout(chart.redraw(), 10000); // redraws chart
+                chart.redraw() // redraws chart
+            }
+
+            function redraw(options) {
+                chart.redraw();
             }
 
             chart = new Highcharts.Chart({
@@ -236,16 +240,16 @@
                         // depth: 50,
                         // innerSize: '40%',
                         //slicedOffset: 20, // decides how far a slice should move if chosen - related to mouseout event below
-                        point: { //sets events
-                            events: {
-                                mouseOut: function (event) {
-                                    this.slice(false); // 'false' boolean sets it back into the pie
-                                },
-                                mouseOver: function (event) {
-                                    this.slice(false); // 'true' boolean sets it away from pie using slicedOffset
-                                }
-                            }
-                        },
+                        // point: { //sets events
+                        //     events: {
+                        //         mouseOut: function (event) {
+                        //             this.slice(false); // 'false' boolean sets it back into the pie
+                        //         },
+                        //         mouseOver: function (event) {
+                        //             this.slice(false); // 'true' boolean sets it away from pie using slicedOffset
+                        //         }
+                        //     }
+                        // },
                         dataLabels: {
                             enabled: true,
                             color: 'black',
@@ -281,7 +285,7 @@
                                             // return options;
                                         };
                                     }
-                                    setChart(options);
+                                    setChart(options); // redraws the chart and initializes it
                                 }
                             }
                         },
